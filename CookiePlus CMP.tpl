@@ -1,4 +1,12 @@
-﻿___INFO___
+﻿___TERMS_OF_SERVICE___
+
+By creating or modifying this file you agree to Google Tag Manager's Community
+Template Gallery Developer Terms of Service available at
+https://developers.google.com/tag-manager/gallery-tos (or such other URL as
+Google may provide), as modified from time to time.
+
+
+___INFO___
 
 {
   "type": "TAG",
@@ -6,7 +14,6 @@
   "version": 1,
   "securityGroups": [],
   "displayName": "CookiePlus CMP",
-  "categories":["CONVERSIONS", "ANALYTICS", "UTILITY"],
   "brand": {
     "id": "brand_dummy",
     "displayName": "",
@@ -26,14 +33,19 @@ ___TEMPLATE_PARAMETERS___
 
 ___SANDBOXED_JS_FOR_WEB_TEMPLATE___
 
+const log = require('logToConsole');
 const JSON = require('JSON');
 const setDefaultConsentState = require('setDefaultConsentState');
 const updateConsentState = require('updateConsentState');
 const getCookieValues = require('getCookieValues');
 const callInWindow = require('callInWindow');
+const COOKIE_GCM_NAME = 'gcm';
+const COOKIE_CHECK_NAME = 'check';
+//const settings = getCookieValues(COOKIE_GCM_NAME);
+const check = getCookieValues(COOKIE_CHECK_NAME);
 const cookies = getCookieValues('ckplus'); 
 
-const onUserConsent = (consents) => {
+const onUserConsent = (consents) => { ///
   let consent = consents.split(',');
   let ad_gcp = 'denied';
   let analytics_gcp = 'denied';
@@ -81,7 +93,9 @@ const main = (data) => {
 let checked = cookies;
 
  if(checked.length > 0){
+   // if(JSON.parse(checked[0]).check === 1){
       main();
+  //  }
  }else{
    setDefaultConsentState({
             'ad_storage': 'denied',
@@ -330,6 +344,27 @@ ___WEB_PERMISSIONS___
   {
     "instance": {
       "key": {
+        "publicId": "logging",
+        "versionId": "1"
+      },
+      "param": [
+        {
+          "key": "environments",
+          "value": {
+            "type": 1,
+            "string": "debug"
+          }
+        }
+      ]
+    },
+    "clientAnnotations": {
+      "isEditedByUser": true
+    },
+    "isRequired": true
+  },
+  {
+    "instance": {
+      "key": {
         "publicId": "access_globals",
         "versionId": "1"
       },
@@ -353,6 +388,6 @@ setup: ''
 
 ___NOTES___
 
-Created on 10/11/2022, 10:18:43 AM
+Created on 10/11/2022, 4:42:33 PM
 
 
