@@ -1,5 +1,5 @@
 homepage: "https://www.predictive.co.th"
 documentation: "https://predictive.co.th/contact-us"
 versions:
-  - sha: 29183bdec3a8178b528e0120e2e9960127eb112d
+  - sha: eb525953db8433c79f63581f333c240ad50c655f
     changeNotes: Initial release.
