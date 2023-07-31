@@ -111,14 +111,18 @@ ___TEMPLATE_PARAMETERS___
       {
         "value": "granted",
         "displayValue": "granted"
-      },
-      {
-        "value": "denied",
-        "displayValue": "denied"
       }
     ],
     "simpleValueType": true,
     "defaultValue": "granted"
+  },
+  {
+    "type": "TEXT",
+    "name": "wait_for_update",
+    "displayName": "wait_for_update",
+    "simpleValueType": true,
+    "valueUnit": "milliseconds",
+    "defaultValue": 500
   }
 ]
 
@@ -130,9 +134,8 @@ const setDefaultConsentState = require('setDefaultConsentState');
 const updateConsentState = require('updateConsentState');
 const getCookieValues = require('getCookieValues');
 const callInWindow = require('callInWindow');
-const cookies = getCookieValues('ckplus'); 
+const cookies = getCookieValues('ckplus');
 
-const logToConsole = require('logToConsole');
 const queryPermission = require('queryPermission');
 const localStorage = require('localStorage');
 let storage = '';
@@ -181,7 +184,8 @@ const main = (isWebview) => {
                  analytics_storage: data.analytics_storage,
                  functionality_storage: data.functionality_storage,
                  personalization_storage: data.personalization_storage, 
-                 security_storage: data.security_storage
+                 security_storage: data.security_storage,
+                 wait_for_update: data.wait_for_update
               };
               setDefaultConsentState(settingObject);
         }
@@ -197,7 +201,8 @@ const main = (isWebview) => {
                  analytics_storage: data.analytics_storage,
                  functionality_storage: data.functionality_storage,
                  personalization_storage: data.personalization_storage, 
-                 security_storage: data.security_storage
+                 security_storage: data.security_storage,
+                 wait_for_update: data.wait_for_update
               };
               setDefaultConsentState(settingObject);
         }
@@ -216,7 +221,8 @@ let checked = cookies;
                  analytics_storage: data.analytics_storage,
                  functionality_storage: data.functionality_storage,
                  personalization_storage: data.personalization_storage, 
-                 security_storage: data.security_storage
+                 security_storage: data.security_storage,
+                 wait_for_update: data.wait_for_update
               }; 
               setDefaultConsentState(settingObject);
    }
@@ -479,24 +485,6 @@ ___WEB_PERMISSIONS___
       "param": []
     },
     "isRequired": true
-  },
-  {
-    "instance": {
-      "key": {
-        "publicId": "logging",
-        "versionId": "1"
-      },
-      "param": [
-        {
-          "key": "environments",
-          "value": {
-            "type": 1,
-            "string": "debug"
-          }
-        }
-      ]
-    },
-    "isRequired": true
   }
 ]
 
@@ -511,6 +499,4 @@ setup: ''
 
 ___NOTES___
 
-Created on 7/31/2023, 5:37:24 PM
-
-
+Created on 7/31/2023, 10:09:41 PM
