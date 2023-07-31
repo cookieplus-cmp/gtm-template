@@ -1,0 +1,5 @@
+homepage: "https://www.cookieplus.com"
+documentation: "https://support.cookieplus.com"
+versions:
+  - sha: 9082cfbcbc515b3778ed5906d8548ad008cd56ec
+    changeNotes: Initial Release
