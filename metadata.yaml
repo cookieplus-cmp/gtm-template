@@ -1,5 +1,9 @@
 homepage: "https://www.cookieplus.com"
 documentation: "https://support.cookieplus.com"
 versions:
+  # Latest version
   - sha: 6497508f640de1ce89f84a000e339c14f62e7fe5
+    changeNotes: Fix bug and added menu options.
+  # Older versions
+  - sha: 625d1946a9645efaefd256880bcc3d3d11ab510b
     changeNotes: Initial Release
