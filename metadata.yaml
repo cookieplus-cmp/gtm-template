@@ -2,7 +2,7 @@ homepage: "https://www.cookieplus.com"
 documentation: "https://help.cookieplus.com"
 versions:
   # Latest version
-  - sha: 4f9a0a5ae1aeb1c06dd8fba94eebba021a01131d
+  - sha: 06cc03a4a08e54c4dff3ece26a98ca93f7d96bb5
     changeNotes: Fixed write_data_layer permission error
   # Older versions
   - sha: 6497508f640de1ce89f84a000e339c14f62e7fe5
